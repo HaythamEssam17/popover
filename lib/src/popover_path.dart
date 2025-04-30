@@ -22,7 +22,11 @@ final class PopoverPath {
       } else if (direction == PopoverDirection.left) {
         _drawLeftElement(path, arrowRect, bodyRect);
       } else {
-        _drawBottomElement(path, arrowRect, bodyRect);
+        _drawBottomElementWithRoundedArrow(
+          path,
+          arrowRect,
+          bodyRect,
+        );
       }
       path.close();
       return path;
@@ -32,12 +36,28 @@ final class PopoverPath {
     }
   }
 
-  void _drawBottomElement(Path path, Rect arrowRect, Rect bodyRect) {
-    path.moveTo(arrowRect.left, arrowRect.bottom);
-    path.lineTo(arrowRect.left + arrowRect.width / 2, arrowRect.top);
-    path.lineTo(arrowRect.right, arrowRect.bottom);
+  void _drawBottomElementWithRoundedArrow(
+      Path path, Rect arrowRect, Rect bodyRect) {
+    final centerX = arrowRect.left + arrowRect.width / 2;
+    final tipY = arrowRect.top;
+    final baseY = arrowRect.bottom;
+    // final cornerRadius = 6.0;
 
-    path.lineTo(bodyRect.right - radius, bodyRect.top);
+    path.moveTo(arrowRect.left, baseY);
+    path.lineTo(centerX - radius, tipY + radius);
+
+    path.quadraticBezierTo(
+      centerX,
+      tipY,
+      centerX + radius,
+      tipY + radius,
+    );
+
+    path.lineTo(arrowRect.right, baseY);
+
+    path.close();
+
+    path.lineTo(bodyRect.right - radius!, bodyRect.top);
     path.conicTo(
       bodyRect.right,
       bodyRect.top,
@@ -159,9 +179,23 @@ final class PopoverPath {
   }
 
   void _drawTopElement(Path path, Rect arrowRect, Rect bodyRect) {
-    path.moveTo(arrowRect.left, arrowRect.top);
-    path.lineTo(arrowRect.left + arrowRect.width / 2, arrowRect.bottom);
-    path.lineTo(arrowRect.right, arrowRect.top);
+    final centerX = arrowRect.left + arrowRect.width / 2;
+    final tipY = arrowRect.top;
+    final baseY = arrowRect.bottom;
+
+    path.moveTo(arrowRect.left, tipY);
+    path.lineTo(centerX - radius, baseY - radius);
+
+    path.quadraticBezierTo(
+      centerX,
+      baseY,
+      centerX + radius,
+      baseY - radius,
+    );
+
+    path.lineTo(arrowRect.right, tipY);
+
+    path.close();
 
     path.lineTo(bodyRect.right - radius, bodyRect.bottom);
     path.conicTo(
