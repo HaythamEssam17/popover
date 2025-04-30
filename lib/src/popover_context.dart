@@ -11,6 +11,7 @@ final class PopoverContext extends SingleChildRenderObjectWidget {
   final Color? backgroundColor;
   final List<BoxShadow>? boxShadow;
   final double? radius;
+  final double? arrowRadius;
   final PopoverDirection? direction;
   final double? arrowWidth;
   final double arrowHeight;
@@ -24,6 +25,7 @@ final class PopoverContext extends SingleChildRenderObjectWidget {
     this.backgroundColor,
     this.boxShadow,
     this.radius,
+    this.arrowRadius,
     this.direction,
     this.arrowWidth,
   });
@@ -37,6 +39,7 @@ final class PopoverContext extends SingleChildRenderObjectWidget {
       scale: animation.value,
       direction: direction,
       radius: radius,
+      arrowRadius: arrowRadius,
       arrowWidth: arrowWidth,
       arrowHeight: arrowHeight,
     );
@@ -54,6 +57,7 @@ final class PopoverContext extends SingleChildRenderObjectWidget {
       ..scale = transition == PopoverTransition.scale ? animation.value : 1.0
       ..direction = direction
       ..radius = radius
+      ..arrowRadius = arrowRadius
       ..arrowWidth = arrowWidth
       ..arrowHeight = arrowHeight;
   }

@@ -3,9 +3,9 @@ import 'package:flutter/painting.dart';
 import 'popover_direction.dart';
 
 final class PopoverPath {
-  final double radius;
+  final double arrowRadius;
 
-  const PopoverPath(this.radius);
+  const PopoverPath(this.arrowRadius);
 
   Path draw(
     PopoverDirection? direction,
@@ -41,54 +41,54 @@ final class PopoverPath {
     final centerX = arrowRect.left + arrowRect.width / 2;
     final tipY = arrowRect.top;
     final baseY = arrowRect.bottom;
-    // final cornerRadius = 6.0;
+    // final cornerarrowRadius = 6.0;
 
     path.moveTo(arrowRect.left, baseY);
-    path.lineTo(centerX - radius, tipY + radius);
+    path.lineTo(centerX - arrowRadius, tipY + arrowRadius);
 
     path.quadraticBezierTo(
       centerX,
       tipY,
-      centerX + radius,
-      tipY + radius,
+      centerX + arrowRadius,
+      tipY + arrowRadius,
     );
 
     path.lineTo(arrowRect.right, baseY);
 
     path.close();
 
-    path.lineTo(bodyRect.right - radius!, bodyRect.top);
+    path.lineTo(bodyRect.right - arrowRadius!, bodyRect.top);
     path.conicTo(
       bodyRect.right,
       bodyRect.top,
       bodyRect.right,
-      bodyRect.top + radius,
+      bodyRect.top + arrowRadius,
       1,
     );
 
-    path.lineTo(bodyRect.right, bodyRect.bottom - radius);
+    path.lineTo(bodyRect.right, bodyRect.bottom - arrowRadius);
     path.conicTo(
       bodyRect.right,
       bodyRect.bottom,
-      bodyRect.right - radius,
+      bodyRect.right - arrowRadius,
       bodyRect.bottom,
       1,
     );
 
-    path.lineTo(bodyRect.left + radius, bodyRect.bottom);
+    path.lineTo(bodyRect.left + arrowRadius, bodyRect.bottom);
     path.conicTo(
       bodyRect.left,
       bodyRect.bottom,
       bodyRect.left,
-      bodyRect.bottom - radius,
+      bodyRect.bottom - arrowRadius,
       1,
     );
 
-    path.lineTo(bodyRect.left, bodyRect.top + radius);
+    path.lineTo(bodyRect.left, bodyRect.top + arrowRadius);
     path.conicTo(
       bodyRect.left,
       bodyRect.top,
-      bodyRect.left + radius,
+      bodyRect.left + arrowRadius,
       bodyRect.top,
       1,
     );
@@ -99,39 +99,39 @@ final class PopoverPath {
     path.lineTo(arrowRect.right, arrowRect.top + arrowRect.height / 2);
     path.lineTo(arrowRect.left, arrowRect.bottom);
 
-    path.lineTo(bodyRect.right, bodyRect.bottom - radius);
+    path.lineTo(bodyRect.right, bodyRect.bottom - arrowRadius);
     path.conicTo(
       bodyRect.right,
       bodyRect.bottom,
-      bodyRect.right - radius,
+      bodyRect.right - arrowRadius,
       bodyRect.bottom,
       1,
     );
 
-    path.lineTo(bodyRect.left + radius, bodyRect.bottom);
+    path.lineTo(bodyRect.left + arrowRadius, bodyRect.bottom);
     path.conicTo(
       bodyRect.left,
       bodyRect.bottom,
       bodyRect.left,
-      bodyRect.bottom - radius,
+      bodyRect.bottom - arrowRadius,
       1,
     );
 
-    path.lineTo(bodyRect.left, bodyRect.top + radius);
+    path.lineTo(bodyRect.left, bodyRect.top + arrowRadius);
     path.conicTo(
       bodyRect.left,
       bodyRect.top,
-      bodyRect.left + radius,
+      bodyRect.left + arrowRadius,
       bodyRect.top,
       1,
     );
 
-    path.lineTo(bodyRect.right - radius, bodyRect.top);
+    path.lineTo(bodyRect.right - arrowRadius, bodyRect.top);
     path.conicTo(
       bodyRect.right,
       bodyRect.top,
       bodyRect.right,
-      bodyRect.top + radius,
+      bodyRect.top + arrowRadius,
       1,
     );
   }
@@ -141,39 +141,39 @@ final class PopoverPath {
     path.lineTo(arrowRect.left, arrowRect.top + arrowRect.height / 2);
     path.lineTo(arrowRect.right, arrowRect.bottom);
 
-    path.lineTo(bodyRect.left, bodyRect.bottom - radius);
+    path.lineTo(bodyRect.left, bodyRect.bottom - arrowRadius);
     path.conicTo(
       bodyRect.left,
       bodyRect.bottom,
-      bodyRect.left + radius,
+      bodyRect.left + arrowRadius,
       bodyRect.bottom,
       1,
     );
 
-    path.lineTo(bodyRect.right - radius, bodyRect.bottom);
+    path.lineTo(bodyRect.right - arrowRadius, bodyRect.bottom);
     path.conicTo(
       bodyRect.right,
       bodyRect.bottom,
       bodyRect.right,
-      bodyRect.bottom - radius,
+      bodyRect.bottom - arrowRadius,
       1,
     );
 
-    path.lineTo(bodyRect.right, bodyRect.top + radius);
+    path.lineTo(bodyRect.right, bodyRect.top + arrowRadius);
     path.conicTo(
       bodyRect.right,
       bodyRect.top,
-      bodyRect.right - radius,
+      bodyRect.right - arrowRadius,
       bodyRect.top,
       1,
     );
 
-    path.lineTo(bodyRect.left + radius, bodyRect.top);
+    path.lineTo(bodyRect.left + arrowRadius, bodyRect.top);
     path.conicTo(
       bodyRect.left,
       bodyRect.top,
       bodyRect.left,
-      bodyRect.top + radius,
+      bodyRect.top + arrowRadius,
       1,
     );
   }
@@ -184,51 +184,51 @@ final class PopoverPath {
     final baseY = arrowRect.bottom;
 
     path.moveTo(arrowRect.left, tipY);
-    path.lineTo(centerX - radius, baseY - radius);
+    path.lineTo(centerX - arrowRadius, baseY - arrowRadius);
 
     path.quadraticBezierTo(
       centerX,
       baseY,
-      centerX + radius,
-      baseY - radius,
+      centerX + arrowRadius,
+      baseY - arrowRadius,
     );
 
     path.lineTo(arrowRect.right, tipY);
 
     path.close();
 
-    path.lineTo(bodyRect.right - radius, bodyRect.bottom);
+    path.lineTo(bodyRect.right - arrowRadius, bodyRect.bottom);
     path.conicTo(
       bodyRect.right,
       bodyRect.bottom,
       bodyRect.right,
-      bodyRect.bottom - radius,
+      bodyRect.bottom - arrowRadius,
       1,
     );
 
-    path.lineTo(bodyRect.right, bodyRect.top + radius);
+    path.lineTo(bodyRect.right, bodyRect.top + arrowRadius);
     path.conicTo(
       bodyRect.right,
       bodyRect.top,
-      bodyRect.right - radius,
+      bodyRect.right - arrowRadius,
       bodyRect.top,
       1,
     );
 
-    path.lineTo(bodyRect.left + radius, bodyRect.top);
+    path.lineTo(bodyRect.left + arrowRadius, bodyRect.top);
     path.conicTo(
       bodyRect.left,
       bodyRect.top,
       bodyRect.left,
-      bodyRect.top + radius,
+      bodyRect.top + arrowRadius,
       1,
     );
 
-    path.lineTo(bodyRect.left, bodyRect.bottom - radius);
+    path.lineTo(bodyRect.left, bodyRect.bottom - arrowRadius);
     path.conicTo(
       bodyRect.left,
       bodyRect.bottom,
-      bodyRect.left + radius,
+      bodyRect.left + arrowRadius,
       bodyRect.bottom,
       1,
     );

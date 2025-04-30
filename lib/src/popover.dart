@@ -88,6 +88,7 @@ Future<T?> showPopover<T extends Object?>({
   Color barrierColor = const Color(0x80000000),
   Duration transitionDuration = const Duration(milliseconds: 200),
   double radius = 6,
+  double arrowRadius = 6,
   List<BoxShadow> shadow = const [
     BoxShadow(
       color: Color(0x1F000000),
@@ -134,6 +135,7 @@ Future<T?> showPopover<T extends Object?>({
             backgroundColor: backgroundColor,
             direction: direction,
             radius: radius,
+            arrowRadius: arrowRadius,
             boxShadow: shadow,
             animation: animation,
             arrowWidth: arrowWidth,

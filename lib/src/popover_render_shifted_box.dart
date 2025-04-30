@@ -13,6 +13,7 @@ final class PopoverRenderShiftedBox extends RenderShiftedBox {
   List<BoxShadow>? _boxShadow;
   double? _scale;
   double? _radius;
+  double? _arrowRadius;
 
   PopoverRenderShiftedBox({
     required Rect attachRect,
@@ -23,6 +24,7 @@ final class PopoverRenderShiftedBox extends RenderShiftedBox {
     List<BoxShadow>? boxShadow,
     double? scale,
     double? radius,
+    double? arrowRadius,
     PopoverDirection? direction,
   }) : super(child) {
     _attachRect = attachRect;
@@ -30,6 +32,7 @@ final class PopoverRenderShiftedBox extends RenderShiftedBox {
     _boxShadow = boxShadow;
     _scale = scale;
     _radius = radius;
+    arrowRadius = arrowRadius;
     _direction = direction;
   }
 
@@ -65,6 +68,13 @@ final class PopoverRenderShiftedBox extends RenderShiftedBox {
   set radius(double? value) {
     if (_radius == value) return;
     _radius = value;
+    markNeedsLayout();
+  }
+
+  double? get arrowRadius => _arrowRadius;
+  set arrowRadius(double? value) {
+    if (arrowRadius == value) return;
+    arrowRadius = value;
     markNeedsLayout();
   }
 
@@ -138,7 +148,7 @@ final class PopoverRenderShiftedBox extends RenderShiftedBox {
     _pushClipPath(
       context,
       offset,
-      PopoverPath(radius!).draw(_direction, arrowRect, bodyRect),
+      PopoverPath(arrowRadius!).draw(_direction, arrowRect, bodyRect),
       transform,
     );
   }
@@ -218,7 +228,8 @@ final class PopoverRenderShiftedBox extends RenderShiftedBox {
           .shift(boxShadow.offset)
           .inflate(boxShadow.spreadRadius);
 
-      final path = PopoverPath(radius!).draw(_direction, arrowRect, bodyRect);
+      final path =
+          PopoverPath(arrowRadius!).draw(_direction, arrowRect, bodyRect);
 
       context.pushTransform(needsCompositing, offset, transform, (
         context,

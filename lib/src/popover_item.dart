@@ -10,6 +10,7 @@ class PopoverItem extends StatefulWidget {
   final Color? backgroundColor;
   final PopoverDirection? direction;
   final double? radius;
+  final double? arrowRadius;
   final List<BoxShadow>? boxShadow;
   final Animation<double> animation;
   final double? arrowWidth;
@@ -31,6 +32,7 @@ class PopoverItem extends StatefulWidget {
     this.backgroundColor,
     this.direction,
     this.radius,
+    this.arrowRadius,
     this.boxShadow,
     this.arrowWidth,
     this.constraints,
@@ -65,6 +67,7 @@ class _PopoverItemState extends State<PopoverItem> {
                 attachRect: _attachRect,
                 animation: widget.animation,
                 radius: widget.radius,
+                arrowRadius: widget.arrowRadius,
                 backgroundColor: widget.backgroundColor,
                 boxShadow: widget.boxShadow,
                 direction: widget.direction,
