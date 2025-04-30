@@ -73,8 +73,8 @@ final class PopoverRenderShiftedBox extends RenderShiftedBox {
 
   double? get arrowRadius => _arrowRadius;
   set arrowRadius(double? value) {
-    if (arrowRadius == value) return;
-    arrowRadius = value;
+    if (_arrowRadius == value) return;
+    _arrowRadius = value;
     markNeedsLayout();
   }
 
