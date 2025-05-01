@@ -32,7 +32,7 @@ final class PopoverRenderShiftedBox extends RenderShiftedBox {
     _boxShadow = boxShadow;
     _scale = scale;
     _radius = radius;
-    arrowRadius = arrowRadius;
+    _arrowRadius = arrowRadius;
     _direction = direction;
   }
 
@@ -148,7 +148,7 @@ final class PopoverRenderShiftedBox extends RenderShiftedBox {
     _pushClipPath(
       context,
       offset,
-      PopoverPath(arrowRadius!).draw(_direction, arrowRect, bodyRect),
+      PopoverPath(arrowRadius!, radius!).draw(_direction, arrowRect, bodyRect),
       transform,
     );
   }
@@ -228,8 +228,8 @@ final class PopoverRenderShiftedBox extends RenderShiftedBox {
           .shift(boxShadow.offset)
           .inflate(boxShadow.spreadRadius);
 
-      final path =
-          PopoverPath(arrowRadius!).draw(_direction, arrowRect, bodyRect);
+      final path = PopoverPath(arrowRadius!, radius!)
+          .draw(_direction, arrowRect, bodyRect);
 
       context.pushTransform(needsCompositing, offset, transform, (
         context,
