@@ -129,7 +129,7 @@ Future<T?> showPopover<T extends Object?>({
         return PopScope(
           onPopInvokedWithResult: (didPop, _) => onPop?.call(),
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: arrowDxOffset),
+            padding: EdgeInsets.symmetric(horizontal: -arrowDxOffset),
             child: PopoverItem(
               transition: transition,
               child: Builder(builder: bodyBuilder),
