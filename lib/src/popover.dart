@@ -129,8 +129,8 @@ Future<T?> showPopover<T extends Object?>({
       pageBuilder: (_, animation, __) {
         return PopScope(
           onPopInvokedWithResult: (didPop, _) => onPop?.call(),
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: horizontalPadding),
+          child: Transform.translate(
+            offset: Offset(horizontalPadding, 0),
             child: PopoverItem(
               transition: transition,
               child: Builder(builder: bodyBuilder),
