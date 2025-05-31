@@ -76,6 +76,7 @@ class Button extends StatelessWidget {
             backgroundColor: Colors.white,
             width: 200,
             height: 400,
+            horizontalPadding: 0,
             radius: 6,
             arrowRadius: 6,
             arrowHeight: 15,
