@@ -94,12 +94,20 @@ final class PopoverPath {
   }
 
   void _drawLeftElement(Path path, Rect arrowRect, Rect bodyRect) {
-    // Arrow
+    final centerY = arrowRect.top + arrowRect.height / 2;
+
+    // Arrow with radius
     path.moveTo(arrowRect.left, arrowRect.top);
-    path.lineTo(arrowRect.right, arrowRect.top + arrowRect.height / 2);
+    path.lineTo(arrowRect.right - arrowRadius, centerY - arrowRadius);
+    path.quadraticBezierTo(
+      arrowRect.right,
+      centerY,
+      arrowRect.right - arrowRadius,
+      centerY + arrowRadius,
+    );
     path.lineTo(arrowRect.left, arrowRect.bottom);
 
-    // Body
+    // Body as is
     path.lineTo(bodyRect.right, bodyRect.bottom - bodyRadius);
     path.conicTo(bodyRect.right, bodyRect.bottom, bodyRect.right - bodyRadius,
         bodyRect.bottom, 1);
@@ -115,12 +123,20 @@ final class PopoverPath {
   }
 
   void _drawRightElement(Path path, Rect arrowRect, Rect bodyRect) {
-    // Arrow
+    final centerY = arrowRect.top + arrowRect.height / 2;
+
+    // Arrow with radius
     path.moveTo(arrowRect.right, arrowRect.top);
-    path.lineTo(arrowRect.left, arrowRect.top + arrowRect.height / 2);
+    path.lineTo(arrowRect.left + arrowRadius, centerY - arrowRadius);
+    path.quadraticBezierTo(
+      arrowRect.left,
+      centerY,
+      arrowRect.left + arrowRadius,
+      centerY + arrowRadius,
+    );
     path.lineTo(arrowRect.right, arrowRect.bottom);
 
-    // Body
+    // Body as is
     path.lineTo(bodyRect.left, bodyRect.bottom - bodyRadius);
     path.conicTo(bodyRect.left, bodyRect.bottom, bodyRect.left + bodyRadius,
         bodyRect.bottom, 1);
